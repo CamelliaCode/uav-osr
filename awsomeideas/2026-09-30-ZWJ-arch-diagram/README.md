@@ -160,3 +160,10 @@ def vtx(cx,cy,span,txt,...)  # 竖排：tx(...) 后 rotation = 90
 
 平时多保存一些架构图，image里面包含了一些我收藏的架构图
 
+## 参考架构图
+
+![架构图 1](images/arch-diagram-1.jpg)
+![架构图 2](images/arch-diagram-2.jpg)
+![架构图 3](images/arch-diagram-3.jpg)
+![架构图 4](images/arch-diagram-4.jpg)
+![架构图 5](images/arch-diagram-5.jpg)
