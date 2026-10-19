@@ -1,0 +1,29 @@
+# 实验配置模板 —— 复制到 experiments/<实验ID>/config.yaml 再改
+experiment_id: exp-YYYYMMDD-method-dataset-01
+owner: ""
+seed: 42
+
+data:
+  dataset: rfuav            # rfuav | drff-r2
+  modality: image           # image | acoustic | iq
+  root: ""                  # 本地数据根目录，填自己的路径
+  num_classes: 0
+  image_size: 224
+
+model:
+  name: vit                 # vit | qwen | ...
+  pretrained: ""
+  num_classes: 0
+
+train:
+  epochs: 50
+  batch_size: 64
+  lr: 0.0001
+  optimizer: adamw
+  scheduler: cosine
+
+eval:
+  metrics: [acc, auroc, oscr, fpr95]
+
+output:
+  dir: ""                   # 产物目录，指向 OpenList 挂载点

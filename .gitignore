@@ -1,0 +1,61 @@
+# ---------- Python ----------
+__pycache__/
+*.py[cod]
+*.pyo
+*.egg-info/
+.eggs/
+build/
+dist/
+.venv/
+venv/
+env/
+.ipynb_checkpoints/
+.mypy_cache/
+.pytest_cache/
+.ruff_cache/
+
+# ---------- 数据（体积大，放 OpenList） ----------
+data/*
+!data/README.md
+datasets/
+raw/
+*.csv
+*.tsv
+*.h5
+*.hdf5
+*.npy
+*.npz
+*.mat
+*.pkl
+*.pickle
+
+# ---------- 模型权重 ----------
+ckpt/
+checkpoints/
+weights/
+*.pth
+*.pt
+*.ckpt
+*.onnx
+*.safetensors
+*.bin
+
+# ---------- 日志与实验产物 ----------
+logs/
+runs/
+outputs/
+wandb/
+*.log
+*.tfevents.*
+
+# ---------- 编辑器 / 系统 ----------
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# ---------- 密钥 ----------
+.env
+*.key
+*.pem
+secrets.yaml
