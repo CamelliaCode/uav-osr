@@ -35,7 +35,7 @@ uav-osr/
 ├── experiments/           # 一次实验一个目录，见 experiments/README.md
 │   ├── README.md
 │   └── _template/         # 新建实验时复制这个
-├── asmeideas/             # 每周经验分享，一次一份，见 asmeideas/README.md
+├── awsomeideas/           # 每周经验分享，一次一份，见 awsomeideas/README.md
 │   ├── README.md
 │   └── _template.md
 ├── src/
@@ -83,9 +83,9 @@ python scripts/train.py --config experiments/exp-YYYYMMDD-demo-rfuav-01/config.y
 
 每周一次经验分享会，每人轮流讲一个可复用的做法（20 分钟讲 + 10 分钟讨论）。
 
-- 记录放 [`asmeideas/`](asmeideas/README.md)，一次一份，命名 `YYYY-MM-DD-主题.md`
-- 复制 `asmeideas/_template.md` 起步
-- 分享记录表在 `asmeideas/README.md` 底部，讲完加一行
+- 记录放 [`awsomeideas/`](awsomeideas/README.md)，一次一份，命名 `YYYY-MM-DD-主题.md`
+- 复制 `awsomeideas/_template.md` 起步
+- 分享记录表在 `awsomeideas/README.md` 底部，讲完加一行
 
 ## 进度管理
 
