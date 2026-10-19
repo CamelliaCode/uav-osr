@@ -1,91 +1,70 @@
 # uav-osr · 无人机开集识别
 
-> 基于大模型的多模态无人机开集识别 —— 图像 / 声学 / IQ
+> 项目记录仓库 —— 只放**实验结论**和**每周想法**，不放代码。
 
-## 项目概述
+## 仓库里有什么
 
-| 项 | 内容 |
+| 放 | 不放 |
 | :--- | :--- |
-| 任务 | 无人机**开集识别**（Open-Set Recognition）：已知机型正确分类，未知机型判为 unknown |
-| 数据集 | RFUAV（ImageSet）、DRFF-R2 |
-| 模态 | ① image　② 声学　③ 纯 IQ |
-| 方法 | ViT 基线 → 大模型（Qwen 系列）LoRA / 全参数微调 |
-| 评测 | 闭集准确率、AUROC、OSCR、FPR@95TPR |
+| 每次实验的目的、配置、指标、结论 | 训练和模型代码 |
+| 复现一次实验需要的参数 | 数据集本体 |
+| 每周经验分享的整理稿 | 权重、日志、checkpoint |
 
-三条技术路线共享同一套数据加载、评测脚本和可视化，所以放在**同一个仓库**里，用目录区分。
+代码和数据的实际位置：
 
-## 团队与分工
-
-| 姓名 | GitHub | 主攻方向 | 负责内容 |
-| :--- | :--- | :--- | :--- |
-| 章伟杰 | @CamelliaCode | 总体 | 进度把控、跨模态协调 |
-| 江涵 | 待填 | image | 图像模态实验、ViT 基线 |
-| 杨兴杰 | 待填 | image（兼声学） | 图像模态、声学方案 |
-| 张浩 | 待填 | 纯 IQ | IQ 信号、数据集与文档 |
+- **代码**：（待填，例如 54 服务器 `/home/zwj/uav-osr`，或另一个代码仓库）
+- **数据**：OpenList（S3），见下方「数据集」
 
 ## 目录结构
 
 ```
 uav-osr/
 ├── README.md
-├── requirements.txt
-├── .gitignore
-├── data/                  # 只放数据集说明和索引，不放数据本体
-│   └── README.md
-├── experiments/           # 一次实验一个目录，见 experiments/README.md
+├── experiments/       # 一次实验一个目录：目的 / 配置 / 结果 / 结论
 │   ├── README.md
-│   └── _template/         # 新建实验时复制这个
-├── awsomeideas/           # 每周经验分享，一次一份，见 awsomeideas/README.md
-│   ├── README.md
-│   └── _template.md
-├── src/
-│   ├── common/            # 公共代码：数据加载 / 指标 / 可视化
-│   ├── image/             # 图像模态
-│   ├── acoustic/          # 声学模态
-│   └── iq/                # 纯 IQ 信号
-└── scripts/               # 训练、评测、数据集处理脚本
+│   └── _template/
+└── awsomeideas/       # 每周经验分享，一次一份
+    ├── README.md
+    └── _template.md
 ```
 
-## 环境
+分工一句话：**experiments 记「我们跑出了什么」，awsomeideas 记「我们学到了什么」。**
 
-```bash
-python -m venv .venv
-# Windows
-.venv\Scripts\activate
-# Linux / macOS
-source .venv/bin/activate
+## 团队与分工
 
-pip install -r requirements.txt
-```
+| 姓名 | GitHub | 方向 | 负责内容 |
+| :--- | :--- | :--- | :--- |
+| 章伟杰 | @CamelliaCode | 总体 | 进度把控、跨模态协调 |
+| 江涵 | 待填 | image | 图像模态实验、ViT 基线 |
+| 杨兴杰 | 待填 | image（兼声学） | 图像模态、声学方案 |
+| 张浩 | 待填 | 纯 IQ | IQ 信号、数据集与文档 |
 
-数据集不在仓库里，路径和获取方式见 [`data/README.md`](data/README.md)。
+## 数据集
 
-## 快速开始
+| 数据集 | 模态 | 位置 |
+| :--- | :--- | :--- |
+| RFUAV（ImageSet） | image | OpenList：待填 |
+| DRFF-R2 | 纯 IQ | OpenList：待填 |
+| 声学数据集 | 声学 | 待定 |
 
-```bash
-# 1. 下载数据集（见 data/README.md），放到本地某个目录
-# 2. 复制一份配置，改成自己的路径
-cp experiments/_template/config.yaml experiments/exp-YYYYMMDD-demo-rfuav-01/config.yaml
-# 3. 跑
-python scripts/train.py --config experiments/exp-YYYYMMDD-demo-rfuav-01/config.yaml
-```
+数据不进仓库。实验里用到哪一份，在对应实验的 `config.yaml` 里写清楚版本和路径。
 
-> `scripts/train.py` 还没有实现，第一个实现它的人顺手把这条命令改对。
+## 实验记录
 
-## 实验规范
+1. **实验 ID**：`exp-YYYYMMDD-<方法>-<数据集>-<序号>`，例 `exp-20261019-vit-rfuav-01`
+2. 一次实验一个目录，复制 `experiments/_template/`
+3. 结论 2–3 句写进实验 README，指标只留 2–3 个
+4. 权重和日志传 OpenList，目录里只留链接
 
-1. **实验 ID**：`exp-YYYYMMDD-<方法>-<数据集>-<序号>`，例：`exp-20261019-vit-rfuav-01`
-2. 每次实验在 `experiments/<实验ID>/` 下建目录，复制 `_template/` 里的两个文件
-3. 权重、日志、可视化图**不进仓库**，传 OpenList，在实验 README 里写链接
-4. 结论写进实验 README 的「结论」一节，2–3 句；表格里只放实验 ID
+细节见 [`experiments/README.md`](experiments/README.md)。
 
 ## 每周分享
 
-每周一次经验分享会，每人轮流讲一个可复用的做法（20 分钟讲 + 10 分钟讨论）。
+每周一次，每人轮流讲一个可复用的做法（20 分钟讲 + 10 分钟讨论）。
 
-- 记录放 [`awsomeideas/`](awsomeideas/README.md)，一次一份，命名 `YYYY-MM-DD-主题.md`
+- 记录放 [`awsomeideas/`](awsomeideas/README.md)，命名 `YYYY-MM-DD-主题.md`
 - 复制 `awsomeideas/_template.md` 起步
-- 分享记录表在 `awsomeideas/README.md` 底部，讲完加一行
+- 讲完在 `awsomeideas/README.md` 底部的表里加一行
 
 ## 进度管理
 
@@ -93,19 +72,8 @@ python scripts/train.py --config experiments/exp-YYYYMMDD-demo-rfuav-01/config.y
 
 原则：**状态放表格，结论放仓库。** 每周一上午各人更新自己那几行，周会只看逾期和阻塞。
 
-## 分支与提交
+## 为什么代码不在这里
 
-| 场景 | 分支名 |
-| :--- | :--- |
-| 新功能 / 新实验 | `feat/<名字>/<主题>`，例 `feat/jianghan/vit-baseline` |
-| 修 bug | `fix/<名字>/<主题>` |
-| 只改文档 | 直接提交到 `main` |
+代码迭代快、体积大、经常要跑在服务器上。放这儿只会让仓库变成一堆无法运行的快照。
 
-- 实验在个人分支上做，**出结论再合回 `main`**
-- `main` 任何时候都应该能跑通
-- 提交信息说清做了什么：`add vit baseline on rfuav imageset`，不要 `update`
-
-## 大文件
-
-- 数据、权重、日志 → OpenList（S3），仓库里只放脚本和链接
-- 单文件超过 50 MB 就不要提交，`.gitignore` 已经挡了常见后缀
+这里沉淀的是**「跑出了什么、为什么」**——三个月后翻回来，能看懂当时为什么这么改，就够了。
