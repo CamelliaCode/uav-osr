@@ -4,9 +4,10 @@
 | :--- | :--- |
 | 负责人 | |
 | 日期 | |
+| 分支 | |
+| 提交 | |
 | 数据集 | |
 | 方法 | |
-| 代码版本 | （commit hash 或服务器目录 + 日期） |
 
 ## 目的
 
@@ -20,10 +21,10 @@
 
 见同目录 `config.yaml`。
 
-## 启动命令
+## 命令
 
-```
-（贴服务器上执行的原始命令）
+```bash
+python scripts/train.py --config experiments/exp-YYYYMMDD-方法-数据集-01/config.yaml
 ```
 
 ## 结果
