@@ -35,6 +35,9 @@ uav-osr/
 ├── experiments/           # 一次实验一个目录，见 experiments/README.md
 │   ├── README.md
 │   └── _template/         # 新建实验时复制这个
+├── sharing/               # 每周经验分享，一次一份，见 sharing/README.md
+│   ├── README.md
+│   └── _template.md
 ├── src/
 │   ├── common/            # 数据加载 / 指标 / 可视化，三条线共用
 │   ├── image/             # 图像模态
@@ -75,6 +78,14 @@ python scripts/train.py --config experiments/exp-YYYYMMDD-demo-rfuav-01/config.y
 2. 每次实验在 `experiments/<实验ID>/` 下建目录，复制 `_template/` 里的两个文件
 3. 权重、日志、可视化图**不进仓库**，传 OpenList，在实验 README 里写链接
 4. 结论写进实验 README 的「结论」一节，2–3 句；表格里只放实验 ID
+
+## 每周分享
+
+每周一次经验分享会，每人轮流讲一个可复用的做法（20 分钟讲 + 10 分钟讨论）。
+
+- 记录放 [`sharing/`](sharing/README.md)，一次一份，命名 `YYYY-MM-DD-主题.md`
+- 复制 `sharing/_template.md` 起步
+- 分享记录表在 `sharing/README.md` 底部，讲完加一行
 
 ## 进度管理
 
