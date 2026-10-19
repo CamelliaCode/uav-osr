@@ -27,7 +27,7 @@
 awsomeideas/
 ├── _template/                       # 模板，复制这个
 │   └── README.md
-└── 2026-10-24-jianghan-ai-paper/    # 日期-姓名-主题
+└── 2026-10-24-JH-paper-read/        # 日期-缩写-主题
     ├── README.md                    # 正文
     └── images/                      # 这篇用到的截图
         ├── 01-before.png
@@ -36,9 +36,31 @@ awsomeideas/
 
 **为什么用文件夹，而不是单个 md**：截图要跟着正文走。单文件的话图片只能散在别处，一搬就断链。
 
-**命名**：`YYYY-MM-DD-姓名-主题`。日期写分享当天；姓名用**拼音**——路径里出现中文，链接会变成 `%E6%B1%9F%E6%B6%B5` 这种乱码，发给人不好看。
+## 命名规则
 
-同一主题第二个人讲，就再建一个文件夹，不用改旧的。
+**`YYYY-MM-DD-缩写-主题`**
+
+| 缩写 | 姓名 |
+| :--- | :--- |
+| `JH` | 江涵 |
+| `YXJ` | 杨兴杰 |
+| `ZH` | 张浩 |
+| `ZWJ` | 章伟杰 |
+
+- **缩写固定大写**，不要写成 `Jh`、`jh`——GitHub 区分大小写，会多出一个文件夹
+- **主题用英文**，2–4 个单词，小写，连字符连接：
+
+  | 好 | 不好 |
+  | :--- | :--- |
+  | `paper-read` | `读论文` |
+  | `prompt-debug` | `how-i-use-ai-to-debug` |
+  | `fig-plot` | `Figure Plot` |
+  | `data-clean` | `data_clean_v2_final` |
+
+- 日期写**分享当天**，不是写稿那天
+- 同一天同一个人讲两场，末尾加 `-2`
+
+完整标题不放在文件夹名里，写在 README 第一行 `# 标题` 和下面的记录表里。
 
 ## 图片怎么插
 
@@ -53,33 +75,37 @@ awsomeideas/
 
 ## 图片怎么上传（三条路，选一条）
 
-**A. 网页上传（不用装 git，最稳）**
+**A. 拖整个文件夹（不用装 git，最省事）**
 
-1. 打开仓库里对应的文件夹
-2. 右上 **Add file → Upload files**，把图片拖进去 → Commit changes
-3. 再点开 `README.md`，铅笔图标编辑，写上 `![说明](images/01-before.png)`
+1. 本地建好 `2026-10-24-JH-paper-read/`，里面放 `README.md` 和 `images/`
+2. 打开 https://github.com/CamelliaCode/uav-osr/upload/main/awsomeideas
+3. 把整个文件夹拖进去，子目录结构会保留 → Commit changes
 
-**B. 直接粘贴（最快）**
+**B. 边写边粘贴（最快）**
 
-在网页上编辑 `README.md` 时，**直接把截图 Ctrl+V 粘进编辑框**，GitHub 会自动上传并把链接插到光标处。适合边写边贴。
+在网页上编辑 `README.md` 时，**直接把截图 Ctrl+V 粘进编辑框**，GitHub 会自动上传并插入链接。粘完检查一下路径，不是 `images/` 就手动改。
 
 **C. 本地 git**
 
 ```powershell
 git clone https://github.com/CamelliaCode/uav-osr.git
-# 放文件、写 md
-git add . ; git commit -m "add 2026-10-24 ai tips" ; git push
+cp -r awsomeideas/_template awsomeideas/2026-10-24-JH-paper-read
+# 改 md、放图
+git add . ; git commit -m "add 2026-10-24 JH paper-read" ; git push
 ```
+
+> Windows 下如果 `git status` 把中文名显示成一串 `\346\261\237`，跑一次
+> `git config --global core.quotepath false` 就好。
 
 ## 怎么发一次分享
 
-1. 复制 `_template/` 整个文件夹，改名成 `YYYY-MM-DD-姓名-主题`
+1. 复制 `_template/` 整个文件夹，改名成 `YYYY-MM-DD-缩写-主题`
 2. 填 `README.md`，截图放 `images/`
 3. 提交
 4. 在下面表格里加一行
 
 ## 分享记录
 
-| 日期 | 主题 | 分享人 | 文件 |
+| 日期 | 缩写 | 主题 | 文件 |
 | :--- | :--- | :--- | :--- |
 | 2026-10-24 | （示例，删掉这行） | | |
