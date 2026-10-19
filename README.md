@@ -32,18 +32,16 @@ uav-osr/
 ├── .gitignore
 ├── data/                  # 只放数据集说明和索引，不放数据本体
 │   └── README.md
-├── experiments/           # 一次实验一个目录，见 experiments/README.md
-│   ├── README.md
-│   └── _template/         # 新建实验时复制这个
 ├── awsomeideas/           # 每周经验分享，一次一份，见 awsomeideas/README.md
 │   ├── README.md
 │   └── _template.md
-├── src/
-│   ├── common/            # 公共代码：数据加载 / 指标 / 可视化
-│   ├── image/             # 图像模态
-│   ├── acoustic/          # 声学模态
-│   └── iq/                # 纯 IQ 信号
-└── scripts/               # 训练、评测、数据集处理脚本
+└── src/                   # 四个方向，实验记录各自放在对应目录下
+    ├── README.md          # 实验记录怎么放
+    ├── _template/         # 新建实验记录时复制这个
+    ├── common/
+    ├── image/
+    ├── acoustic/
+    └── iq/
 ```
 
 ## 环境
@@ -60,22 +58,19 @@ pip install -r requirements.txt
 
 数据集不在仓库里，路径和获取方式见 [`data/README.md`](data/README.md)。
 
-## 快速开始
+## 怎么记一次实验
 
-```bash
-# 1. 下载数据集（见 data/README.md），放到本地某个目录
-# 2. 复制一份配置，改成自己的路径
-cp experiments/_template/config.yaml experiments/exp-YYYYMMDD-demo-rfuav-01/config.yaml
-# 3. 跑
-python scripts/train.py --config experiments/exp-YYYYMMDD-demo-rfuav-01/config.yaml
-```
+1. 复制 `src/_template/` 到对应方向的目录下，重命名为实验 ID
+2. 改 `README.md` 的「目的」和「改动点」
+3. 改 `config.yaml` 里的数据路径和超参
+4. 跑完把指标填进「结果」，权重/日志链接填进「产物」
 
-> `scripts/train.py` 还没有实现，第一个实现它的人顺手把这条命令改对。
+目录怎么分、ID 怎么起，见 [`src/README.md`](src/README.md)。
 
 ## 实验规范
 
 1. **实验 ID**：`exp-YYYYMMDD-<方法>-<数据集>-<序号>`，例：`exp-20261019-vit-rfuav-01`
-2. 每次实验在 `experiments/<实验ID>/` 下建目录，复制 `_template/` 里的两个文件
+2. 每条实验记录放 `src/<方向>/<实验ID>/`，复制 `src/_template/` 里的两个文件
 3. 权重、日志、可视化图**不进仓库**，传 OpenList，在实验 README 里写链接
 4. 结论写进实验 README 的「结论」一节，2–3 句；表格里只放实验 ID
 
