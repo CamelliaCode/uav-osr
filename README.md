@@ -42,20 +42,6 @@ uav-osr/
     └── iq/
 ```
 
-## 环境
-
-```bash
-python -m venv .venv
-# Windows
-.venv\Scripts\activate
-# Linux / macOS
-source .venv/bin/activate
-
-pip install -r requirements.txt
-```
-
-数据集不进仓库。
-
 ## 怎么记一次实验
 
 1. 复制 `src/_template/` 到对应方向的目录下，重命名为实验 ID
