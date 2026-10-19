@@ -24,8 +24,8 @@
 ## 文件命名
 
 ```
-sharing/<YYYY-MM-DD>-<主题>.md
-sharing/2026-10-24-vit-occlusion.md
+asmeideas/<YYYY-MM-DD>-<主题>.md
+asmeideas/2026-10-24-vit-occlusion.md
 ```
 
 日期是**分享当天**，不是写稿那天。
