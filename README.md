@@ -30,9 +30,9 @@ uav-osr/
 ├── README.md
 ├── requirements.txt
 ├── .gitignore
-├── awsomeideas/           # 每周经验分享，一次一份，见 awsomeideas/README.md
+├── awsomeideas/           # 每周经验分享，一次一个文件夹
 │   ├── README.md
-│   └── _template.md
+│   └── _template/
 └── src/                   # 四个方向，实验记录各自放在对应目录下
     ├── README.md          # 实验记录怎么放
     ├── _template/         # 新建实验记录时复制这个
