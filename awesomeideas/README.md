@@ -1,4 +1,4 @@
-# 每周经验分享 · awsomeideas
+# 每周经验分享 · awesomeideas
 
 每周一次，每人轮流分享一个「AI 使用小技巧」。
 
@@ -11,7 +11,7 @@
 ## 目录规范：一次分享 = 一个文件夹
 
 ```
-awsomeideas/
+awesomeideas/
 ├── _template/                       # 模板，复制这个
 │   └── README.md
 └── 2026-10-24-JH-paper-read/        # 日期-缩写-主题
@@ -58,14 +58,14 @@ awsomeideas/
 **A. 拖整个文件夹（不用装 git，最省事）**
 
 1. 本地建好 `2026-10-24-JH-paper-read/`，里面放 `README.md` 和 `images/`
-2. 打开 https://github.com/CamelliaCode/uav-osr/upload/main/awsomeideas
+2. 打开 https://github.com/CamelliaCode/uav-osr/upload/main/awesomeideas
 3. 把整个文件夹拖进去，子目录结构会保留 → Commit changes
 
 **B. 本地 git**
 
 ```powershell
 git clone https://github.com/CamelliaCode/uav-osr.git
-cp -r awsomeideas/_template awsomeideas/2026-10-24-JH-paper-read
+cp -r awesomeideas/_template awesomeideas/2026-10-24-JH-paper-read
 # 改 md、放图
 git add . ; git commit -m "add 2026-10-24 JH paper-read" ; git push
 ```
