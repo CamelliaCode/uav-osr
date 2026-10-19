@@ -61,7 +61,7 @@ awsomeideas/
 2. 打开 https://github.com/CamelliaCode/uav-osr/upload/main/awsomeideas
 3. 把整个文件夹拖进去，子目录结构会保留 → Commit changes
 
-**C. 本地 git**
+**B. 本地 git**
 
 ```powershell
 git clone https://github.com/CamelliaCode/uav-osr.git
