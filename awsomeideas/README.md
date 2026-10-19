@@ -21,8 +21,6 @@ awsomeideas/
         └── 02-after.png
 ```
 
-**为什么用文件夹，而不是单个 md**：截图要跟着正文走。单文件的话图片只能散在别处，一搬就断链。
-
 ## 命名规则
 
 **`YYYY-MM-DD-缩写-主题`**
@@ -55,17 +53,13 @@ awsomeideas/
 ![前后对比](images/01-before.png)
 ```
 
-## 图片怎么上传（三条路，选一条）
+## 图片怎么上传（两条路，选一条）
 
 **A. 拖整个文件夹（不用装 git，最省事）**
 
 1. 本地建好 `2026-10-24-JH-paper-read/`，里面放 `README.md` 和 `images/`
 2. 打开 https://github.com/CamelliaCode/uav-osr/upload/main/awsomeideas
 3. 把整个文件夹拖进去，子目录结构会保留 → Commit changes
-
-**B. 边写边粘贴（最快）**
-
-在网页上编辑 `README.md` 时，**直接把截图 Ctrl+V 粘进编辑框**，GitHub 会自动上传并插入链接。粘完检查一下路径，不是 `images/` 就手动改。
 
 **C. 本地 git**
 
