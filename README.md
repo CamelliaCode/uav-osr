@@ -30,8 +30,6 @@ uav-osr/
 ├── README.md
 ├── requirements.txt
 ├── .gitignore
-├── data/                  # 只放数据集说明和索引，不放数据本体
-│   └── README.md
 ├── awsomeideas/           # 每周经验分享，一次一份，见 awsomeideas/README.md
 │   ├── README.md
 │   └── _template.md
@@ -56,7 +54,7 @@ source .venv/bin/activate
 pip install -r requirements.txt
 ```
 
-数据集不在仓库里，路径和获取方式见 [`data/README.md`](data/README.md)。
+数据集不进仓库。
 
 ## 怎么记一次实验
 
