@@ -39,7 +39,7 @@ uav-osr/
 │   ├── README.md
 │   └── _template.md
 ├── src/
-│   ├── common/            # 数据加载 / 指标 / 可视化，三条线共用
+│   ├── common/            # 公共代码：数据加载 / 指标 / 可视化
 │   ├── image/             # 图像模态
 │   ├── acoustic/          # 声学模态
 │   └── iq/                # 纯 IQ 信号
